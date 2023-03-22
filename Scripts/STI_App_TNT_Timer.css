@@ -1,0 +1,95 @@
+/* 
+	DL_App_Stylesheet_PomodoroTimer.css
+	This file contains styling code for DL_PomodoroTimer.html
+	Copyright Content By ElmerF 2022
+*/
+
+.PT_MainContainer{
+	width: auto;
+	min-width: 500px;
+	min-height: 500px;
+	height: auto;
+	display: grid;
+	grid-template-rows: 40px 1fr 70px 70px;
+	background-color: var(--BGColor-Opacitated);
+	box-shadow: var(--Element-BoxShadow);
+	backdrop-filter: var(--Element-BackdropBlur);
+	margin: auto;
+	padding: 10px;
+	transition: var(--Element-Transition-Delay);
+	border-style: solid;
+	border-color: none;
+}
+
+.PT_PomodoroStage_Container{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-grap: 5px;
+	height: 40px;
+	transition: var(--Element-Transition-Delay);
+}
+
+.PT_PomodoroStage{
+	/* border-style: solid; */
+	background-color: var(--BGColor-ShortcutButtons);
+	padding: 5px;
+	padding-top: 10px;
+	font-family: var(--Text-Font-Secondary);
+	color: var(--Text-Color);
+	text-align: center;
+	user-select: none;
+	transition: var(--Element-Transition-Delay);
+}
+
+.PT_Timer_Container{
+	
+}
+
+.PT_Timer{
+	font-family: var(--Text-Font-Numbers);
+	color: var(--Text-Color);
+	text-align: center;
+	font-size: 200px;
+	transition: var(--Element-Transition-Delay);
+}
+
+.PT_Status{
+	text-align: center;
+	font-family: var(--Text-Font-Primary);
+	color: var(--Text-Color);
+	font-size: 40px;
+}
+
+.PT_Controls_Container{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 5px;
+}
+
+.PT_Controls{
+	padding-top: 25px;
+	text-align: center;
+	font-family: var(--Text-Font-Secondary);
+	color: var(--Text-Color);
+	background-color: var(--BGColor-Buttons);
+	border-radius: 5px;
+	transition: var(--Element-Transition-Delay);
+	user-select: none;
+	cursor: pointer;
+}
+
+.PT_Controls:hover{
+	background-color: var(--BGColor-Hover);
+	box-shadow: var(--Element-BoxShadow);
+}
+
+.PT_Controls:active{
+	background-color: var(--BGColor-Menus);
+	transform: scale(0.95);
+}
+
+/* .Page_Content{
+	background-color: white;
+} */
