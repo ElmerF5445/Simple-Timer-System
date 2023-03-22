@@ -1,0 +1,1008 @@
+<html>
+	<head>
+		<title id="pageElement_PageTitle">
+			Doodle Launcher Public
+		</title>
+		
+		<style>
+			.ErrorScreen_CSSFileMissing{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			background-color: #101122;
+			padding: 30px;
+			z-index: 500;
+			margin: 0;
+			}
+			.ErrorScreen_CSSFileMissing_Text{
+			font-family: Arial;
+			color: white;
+			
+			}
+		</style>
+		<link rel="stylesheet" href="Scripts/DL_Stylesheet.css">
+		<link rel="stylesheet" href="Scripts/DL_Stylesheet_Animations.css">
+		<link rel="stylesheet" href="Scripts/DL_Stylesheet_Reference.css">
+		<link rel="icon" type="image/png" href="Assets/Icons/favicon.png" sizes="96x96">
+		<!-- Default intended fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&family=Roboto&display=swap" rel="stylesheet">
+	</head>
+	<body class="MainPage" onload="window.location.href = 'STI_Timer.html';">
+		<script src="Scripts/DL_Javascript.js"></script>
+		<div class="ErrorScreen_CSSFileMissing">
+			<h1 class="ErrorScreen_CSSFileMissing_Text">
+				Error - Important files are missing
+			</h1>
+			<p class="ErrorScreen_CSSFileMissing_Text">
+				You are seeing this screen because the launcher wasn't able to find the important files that it needs to function. Possible causes:
+				<ul class="ErrorScreen_CSSFileMissing_Text">
+					<li>
+						The file has been moved.
+					</li>
+					<li>
+						The file has been deleted.
+					</li>
+					<li>
+						The file has been corrupted.
+					</li>
+				</ul>
+			</p>
+			<p class="ErrorScreen_CSSFileMissing_Text">
+				The missing files are the following:
+				<ul class="ErrorScreen_CSSFileMissing_Text">
+					<li>
+						Scripts/DL_Stylesheet.css
+					</li>
+					<li>
+						Scripts/DL_Stylesheet_Animations.css
+					</li>
+					<li>
+						Scripts/DL_Stylesheet_Reference.css
+					</li>
+					<li>
+						Scripts/DL_Javascript.js
+					</li>
+				</ul>
+			</p>
+			<p class="ErrorScreen_CSSFileMissing_Text">
+				Recommended actions:
+				<ul class="ErrorScreen_CSSFileMissing_Text">
+					<li>
+						If you moved the files on a different folder, move all missing files to the Scripts folder.
+					</li>
+					<li>
+						Try refreshing the page and restart your browser.
+					</li>
+					<li>
+						Download a fresh copy of the launcher here.
+					</li>
+				</ul>
+			</p>
+			<p class="ErrorScreen_CSSFileMissing_Text">
+				If you think there is a mistake, contact Elmer through any of the contacts and social medias listed in <a href="https://cbelmerf.wixsite.com/content/socials" target="_blank"> his website. </a>
+			</p>
+		</div>
+		<div class="LoadingScreen" id="LoadingScreen">
+			<div class="LoadingScreen_UpperSection" id="LoadingScreen_UpperSection">
+				<img class="LoadingScreen_Icon" src="Assets/Icons/favicon.png"></img>
+				<h2 class="LoadingScreen_VersionTitle" id="versionTitle">
+					Doodle Launcher
+				</h2>
+				<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+			</div>
+			<div class="LoadingScreen_CopyrightSection" id="LoadingScreen_CopyrightSection">
+				
+				<!-- <h4 class="LoadingScreen_Text" id="LoadingScreen_Text"> -->
+					<!-- Building page... -->
+				<!-- </h4> -->
+				<div style="display: flex; justify-content: center; align-items: center;">
+					<img class="LoadingScreen_Copyright_Logo" src="Assets/Icons/ContentByElmerF.png"></img>
+					<h4 class="LoadingScreen_Copyright" id="copyrightTitle">
+						Content By ElmerF
+					</h4>
+				</div>
+			</div>
+		</div>
+		<div class="SessionScreen" id="pageElement_SessionScreen" onclick="close_SessionScreen()">
+			<h1 class="SessionScreen_Time" id="Clock_Time_SessionScreen">
+				
+			</h1>
+			<h3 class="SessionScreen_Date" id="Clock_Date_SessionScreen">
+				
+			</h3>
+			<p class="SessionScreen_Instruction">
+				Click anywhere to start
+			</p>
+			<div class="SessionScreen_Copyright">
+				<p class="SessionScreen_Copyright_Text" id="pageElement_SessionScreen_Copyright">
+					Doodle Launcher Public Beta | Content By ElmerF 2022
+				</p>
+			</div>
+		</div>
+		<div class="ToggleableSearchBar" id="pageElement_Toggleable_SearchBar">
+			<div class="ToggleableSearchBar_SearchBar">
+				<input class="ToggleableSearchBar_SearchBar_Input" placeholder="Internet search" id="pageElement_SearchQuery_3"></input>
+				<img src="Assets/Icons/icon_search.png" class="ToggleableSearchBar_SearchBar_Search" id="toggleable" onclick="search_Query(this.id)" onsubmit="search_Query(this.id)"></img>
+			</div>
+			<img src="Assets/Icons/icon_close.png" class="ToggleableSearchBar_Close" onclick="toggle_SearchBar()"></img>
+		</div>
+		
+		<div class="ExperimentSelector" id="pageElement_ExperimentSelector">
+			<div class="ExperimentSelector_Box">
+				<h2 class="General_Title ExperimentSelector_Title">
+					Select a feature to activate
+				</h2>
+				<p class="General_Paragraph ExperimentSelector_Text" onclick="trigger_Close_ExperimentSelector()">
+					<u> Close experiment selector </u>
+				</p>
+				<p class="General_Paragraph ExperimentSelector_Text" onclick="trigger_Close_ExperimentSelector(), OBN_Begin()">
+					New Onboarding
+				</p>
+				<p class="General_Paragraph ExperimentSelector_Text" onclick="trigger_Close_ExperimentSelector(), open_ProfileSelector()">
+					Log-in Screen
+				</p>
+				<p class="General_Paragraph ExperimentSelector_Text" onclick="trigger_Close_ExperimentSelector(), document.getElementById('subwindow_UpdateWindow').style.display = 'block';">
+					Update Screen
+				</p>
+				<p class="General_Paragraph ExperimentSelector_Text" onclick="trigger_Close_ExperimentSelector(), changePage_Tasker()">
+					To-do List
+				</p>
+				<p class="General_Paragraph ExperimentSelector_Text" onclick="open_Subwindow('Confirmation_LaunchAllLinks')">
+					Confirmation_LaunchAllLinks
+				</p>
+			</div>
+		</div>
+		
+		<!-- Profile Selector -->
+		<div class="ProfileSelector" style="display: none" id="pageElement_ProfileSelector">
+			<div> </div>
+			<h1 class="ProfileSelector_Greeting">
+				Welcome to Doodle Launcher
+			</h1>
+			<h4 class="ProfileSelector_Instruction">
+				Select a profile below to load its shortcut library.
+			</h4>
+			<div class="ProfileSelector_Profiles" id="pageElement_ProfileSelector_ProfilesDiv">
+				<div class="ProfileSelector_Profiles_Item" id="ProfileSelector_Profile_DefaultUser1" onclick="Login_ProfileChosen()">
+					<img class="ProfileSelector_Profiles_Item_Picture" src="Assets/Icons/icon_user.png">
+					<h5 class="ProfileSelector_Profiles_Item_Name">
+						Default User 1
+					</h5>
+				</div>
+				<div class="ProfileSelector_Profiles_Item" onclick="Login_ProfileChosen()">
+					<img class="ProfileSelector_Profiles_Item_Picture" src="Assets/Icons/icon_schedules.png">
+					<h5 class="ProfileSelector_Profiles_Item_Name">
+						Default User 2
+					</h5>
+				</div>
+				<div class="ProfileSelector_Profiles_Item" onclick="Login_ProfileChosen()">
+					<img class="ProfileSelector_Profiles_Item_Picture" src="Assets/Icons/icon_lms.png">
+					<h5 class="ProfileSelector_Profiles_Item_Name">
+						Default User 3
+					</h5>
+				</div>
+				<div class="ProfileSelector_Profiles_Item ProfileSelector_Profiles_Item_CreateProfile">
+					<img class="ProfileSelector_Profiles_Item_Picture" src="Assets/Icons/icon_add.png">
+					<h5 class="ProfileSelector_Profiles_Item_Name">
+						Create a new profile
+					</h5>
+				</div>
+			</div>
+			<div class="ProfileSelector_SearchBar">
+				<div class="ToggleableSearchBar_SearchBar">
+					<input class="ToggleableSearchBar_SearchBar_Input" placeholder="Internet search" id="pageElement_SearchQuery_3"></input>
+					<img src="Assets/Icons/icon_search.png" class="ToggleableSearchBar_SearchBar_Search" id="toggleable" onclick="search_Query(this.id)" onsubmit="search_Query(this.id)"></img>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Login screen -->
+		<div class="LoginScreen" style="display: none" id="pageElement_LoginScreen">
+			<div></div>
+			<div class="LoginScreen_Profile">
+				<h1 class="LoginScreen_Profile_Title">
+					Log in to Doodle Launcher
+				</h1>
+				<img class="LoginScreen_Profile_Picture" src="Assets/Icons/icon_user.png" id="pageElement_Login_Image"></img>
+				<h3 class="LoginScreen_Profile_Name" id="pageElement_Login_Name">
+					Default User 1
+				</h3>
+				<div class="LoginScreen_Profile_Password">
+					<input type="text" class="Input_Text LoginScreen_Profile_Password_Input" placeholder="Password"></input>
+					<p class="LoginScreen_Profile_Password_SignIn">
+						Enter
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Onboarding New -->
+		<div class="Onboarding_New_Container" id="pageElement_Onboarding_New">
+			<div class="Onboarding_New_Window">
+				<div class="Onboarding_New_Window_Graphic">
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_1.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_1"></img>
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_2.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_2"></img>
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_2.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_3"></img>
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_3.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_4"></img>
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_4.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_5"></img>
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_5.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_6"></img>
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_6.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_7"></img>
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_7.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_8"></img>
+					<img src="Assets/Images/Onboarding/OBNG_Placeholder_8.png" class="Onboarding_New_Window_Graphic_Image" id="OBN_Graphic_9"></img>
+				</div>
+				<div class="Onboarding_New_Window_Content">
+					<div class="Onboarding_New_Page" id="OBN_Page_1">
+						<h1 class="Onboarding_New_Page_Title">
+							Welcome to Doodle Launcher
+						</h1>
+						<p class="General_Paragraph">
+							Thank you for downloading Doodle Launcher. Let's start!
+						</p>
+					</div>
+					<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_2">
+						<h1 class="Onboarding_New_Page_Title">
+							Shortcut to your favorite pages
+						</h1>
+						<p class="General_Paragraph">
+							Like a bookmark list, create shortcuts linking to your frequently visited websites and access them with a single click.
+						</p>
+					</div>
+					<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_3">
+						<h1 class="Onboarding_New_Page_Title">
+							Organize your shortcuts into categories
+						</h1>
+						<p class="General_Paragraph">
+							Like file cabinets, you can categorize your shortcuts into toggleable tabs that you can organize into.
+						</p>
+					</div>
+					<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_4">
+						<h1 class="Onboarding_New_Page_Title">
+							Easily edit shortcuts
+						</h1>
+						<p class="General_Paragraph">
+							With a click of a button, you can edit or delete shortcuts and categories through the Shortcut Editor.
+						</p>
+					</div>
+					<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_5">
+						<h1 class="Onboarding_New_Page_Title">
+							Customize your home screen
+						</h1>
+						<p class="General_Paragraph">
+							Give your shortcut library character that is unique to you. Doodle Launcher lets you customize a lot of aspects on your home page, such as the colors and font.
+						</p>
+					</div>
+					<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_6">
+						<h1 class="Onboarding_New_Page_Title">
+							Search quick
+						</h1>
+						<p class="General_Paragraph">
+							Using the launcher and have to search for something? Instead of opening a new tab and searching from there, pull up the Quick Search Bar using Ctrl+Shift and search from there, and the launcher will automatically open a tab with your search query using the search engine of your choice.
+						</p>
+					</div>
+					<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_7">
+						<h1 class="Onboarding_New_Page_Title">
+							What's your name?
+						</h1>
+						<p class="General_Paragraph">
+							Start your browsing through the launcher with a personalized greeting. Do you want to have your name included in the home page greeting? If yes, please write your name in the input box below. This can be changed in the settings.
+						</p>
+						<input type="checkbox" id="OB-DisplayGreetingName"></input>
+						<label class="Input_Label" for="OB-DisplayGreetingName"> Show my name on the greeting text </label>
+						<input class="Input_Text" placeholder="Type your name here" id="form_Onboarding_GreetingName"style="width: 95%;margin: 5px;"></input>
+					</div>
+					<!--<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_8">
+						<h1 class="Onboarding_New_Page_Title">
+						Pick a beginning preset
+						</h1>
+						<p class="General_Paragraph">
+						Select a preset below and the launcher will set everything instantly. This changes the colors and background image and can be changed in the settings.
+						</p>
+						<div class="Onboarding_Presets_Container">
+						<div class="Onboarding_Presets_Button">
+						<img src="Assets/Background/default_New.png" class="Onboarding_Presets_Button_Wallpaper">
+						<p class="Onboarding_Presets_Button_Title">
+						Dark mode (default)
+						</p>
+						</div>
+						<div class="Onboarding_Presets_Button">
+						<img src="Assets/Background/default_lightmode.jpg" class="Onboarding_Presets_Button_Wallpaper">
+						<p class="Onboarding_Presets_Button_Title">
+						Light mode
+						</p>
+						</div>
+						<div class="Onboarding_Presets_Button">
+						<img src="Assets/Background/underwater.jpg" class="Onboarding_Presets_Button_Wallpaper">
+						<p class="Onboarding_Presets_Button_Title">
+						Underwater
+						</p>
+						</div>
+						</div>
+					</div>-->
+					<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_8">
+						<h1 class="Onboarding_New_Page_Title">
+							Before you start...
+						</h1>
+						<p class="General_Paragraph">
+							It's important to know how the launcher works and how it handles information.
+						</p>
+						<h4 class="General_Title">
+							How your data is stored
+						</h4>
+						<p class="General_Paragraph">
+							Doodle Launcher stores all saved data into your browser's internal storage. Data written and saved while your using the launcher will not carry over when you switch browsers.
+						</p>
+						<h4 class="General_Title">
+							What system the launcher use
+						</h4>
+						<p class="General_Paragraph">
+							The launcher uses JavaScript to do most of the functions and features. 
+						</p>
+						<h4 class="General_Title">
+							Vulnerabilities
+						</h4>
+						<p class="General_Paragraph">
+							Because all data is stored into the browser's internal storage, it is easy for other websites to execute a similar JavaScript code to access these keys. This is a vulnerability that is hard to solve using the current system without using some kind of online storage alternative / cloud storage. 
+						</p>
+						<h4 class="General_Title">
+							Do not include any sensitive information
+						</h4>
+						<p class="General_Paragraph">
+							It is a bad idea to include any sensitive information such as passwords, addresses, etc. into any input boxes within the launcher. Data stored can easily be accessed by websites you visit and may use it for their own heinous intentions.
+						</p>
+					</div>
+					<div class="Onboarding_New_Page" style="display:none" id="OBN_Page_9">
+						<h1 class="Onboarding_New_Page_Title">
+							Thank you!
+						</h1>
+						<p class="General_Paragraph">
+							That's all for now. Click Start now to begin using Doodle Launcher.
+						</p>
+					</div>
+					<div class="Onboarding_New_Window_Buttons">
+						<div class="Onboarding_New_Window_Buttons_1" id="OBN_ButtonSet_1">
+							<p class="Onboarding_New_Window_Buttons_Copyright">
+								Content By ElmerF 2022
+							</p>
+							<h1 class="Onboarding_New_Window_Buttons_Next" onclick="OBN_Switch_Page('forward')">
+								Start
+							</h1>
+						</div>
+						<div class="Onboarding_New_Window_Buttons_2" id="OBN_ButtonSet_2">
+							<h1 class="Onboarding_New_Window_Buttons_Previous" onclick="OBN_Switch_Page('backward')">
+								Previous
+							</h1>
+							<h1 class="Onboarding_New_Window_Buttons_Next" onclick="OBN_Switch_Page('forward')">
+								Next
+							</h1>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<!-- Onboarding -->
+		<div class="OnboardingWindow_Container" id="pageElement_Onboarding">
+			<div class="OnboardingWindow">
+				<div class="OnboardingWindow_Content" id="OB_Content_Page0">
+					<h1 class="OnboardingWindow_Title">
+						Welcome to the Doodle Launcher Public Preview 2
+					</h1>
+					<div>
+						<p class="General_Paragraph">
+							There are a couple of things you need to do before you can move on. <br>
+							You will only see this pop-up once every version, and the process will not take more than five minutes. <br><br>
+							Begin the process by pressing "Get started".
+						</p>
+						
+					</div>
+				</div>
+				<div class="OnboardingWindow_Content" id="OB_Content_Page1">
+					<h1 class="OnboardingWindow_Title">
+						Agreement
+					</h1>
+					<div>
+						<p class="General_Paragraph">
+							By clicking "Next", you agree to the following.
+						</p>
+						<p class="General_Paragraph">
+							Please read the entirety of this page before continuing.
+						</p>
+						<p class="General_Paragraph">
+							By using Doodle Launcher, you will be able to do the following:<br>
+							<ul class="General_Paragraph">
+								<li>
+									Create shortcuts by copying the link and adding it in the shortcut editor. 
+								</li>
+								<li>
+									Use the launcher as a library to your frequently used websites.
+								</li>
+							</ul>
+						</p>
+						<p class="General_Paragraph">
+							By using Doodle Launcher, you will not be able to do the following:<br>
+							<ul class="General_Paragraph">
+								<li>
+									Modify the source code used by the launcher to inject monetized content. This includes .html, .js, and .css files.
+								</li>
+								<li>
+									Distribute/sharing the program/zip file to other sites other than the official download page.
+								</li>
+							</ul>
+						</p>
+						<p class="General_Paragraph">
+							By using Doodle Launcher, you agree and understand the following:<br>
+							<ul class="General_Paragraph">
+								<li>
+									Your personal information is your responsibility; and you must not include any sensitive information into any input fields in the launcher; and that potential data/information leaks due to your failure to follow this rule is none of Elmer F.'s fault.
+								</li>
+								<li>
+									Your device's digital security is your responsibility; all the links you enter in the launcher and open through the launcher is your responsibility; any security threats and malware contained within the websites you visit using the launcher is your responsibility.
+								</li>
+								<li>
+									The contents of the websites you visit through the launcher is your responsibility; any malicious content, misinformation, sensitive information, graphic imagery, and more that is contained within the websites you visit using the launcher is your responsibility.
+								</li>
+								<li>
+									Your device's specifications may affect the launcher's performance and load times.
+								</li>
+								<li>
+									The launcher does not collect ANY data or information for monetized reasons; all of the data you enter is contained within your browser's local storage.
+								</li>
+								<li>
+									By using the Public Beta Release, you are entitled to give valid and constructive criticism, comments, and suggestions for the project's improvement.
+								</li>
+								<li>
+									By using the Public Beta Release, you are aware that bugs may occur and that you are entitled to report the bug to Elmer F.
+								</li>
+							</ul>
+						</p>
+					</div>
+				</div>
+				<div class="OnboardingWindow_Content" id="OB_Content_Page2">
+					<h1 class="OnboardingWindow_Title">
+						Update notes
+					</h1>
+					<div>
+						<p class="General_Paragraph">
+							This update includes the following:
+							<ul class="General_Paragraph">
+								<li>
+									More information such as how the launcher collects data, how to use the Shortcut Editor, and Use of Content Guidelines.
+								</li>
+								<li>
+									A confirmation box that asks for your confirmation on deleting items.
+								</li>
+								<li>
+									An option to display the greeting message on the home page.
+								</li>
+								<li>
+									An option to display your name on the greeting message on the home page.
+								</li>
+								<li>
+									Pressing Ctrl + Space again while the "Add Item" window on Shortcut Editor will now close it.
+								</li>
+								<li>
+									Pressing Esc while any windows are open will close it.
+								</li>
+								<li>
+									A few UI changes and tweaks.
+								</li>
+								<li>
+									A button that delivers you straight away to the Report Bug or Feedback forms on the Settings.
+								</li>
+							</ul>
+						</p>
+						<p class="General_Paragraph">
+							Learn more on Settings > Information > View Changelog.
+						</p>
+					</div>
+				</div>
+				<div class="OnboardingWindow_Content" id="OB_Content_Page3">
+					<h1 class="OnboardingWindow_Title">
+						You're good to go!
+					</h1>
+					<div>
+						<p class="General_Paragraph">
+							Click "Next" to start using Doodle Launcher Public Preview.
+						</p>
+					</div>
+				</div>
+				
+				<div class="OnboardingWindow_Bottom" id="OB_Button_Page0">
+					<p class="General_Paragraph">
+						Content By ElmerF 2022
+					</p>
+					<h1 class="Subwindow_Bottom_Button_Main" id="opacitateToLeft" onclick="changePagesForward(this.id)">
+						Get started
+					</h1>
+				</div>
+				<div class="OnboardingWindow_Bottom" id="OB_Button_Page1">
+					<h1 class="Subwindow_Bottom_Button" id="opacitateToRight" onclick="changePagesBackward(this.id)">
+						Previous
+					</h1>
+					<h1 class="Subwindow_Bottom_Button_Main" id="opacitateToLeft" onclick="changePagesForward(this.id)">
+						Next
+					</h1>
+				</div>
+			</div>
+		</div>
+		<!-- Update -->
+		<div class="UpdateWindow_Container" id="subwindow_UpdateWindow">
+			<div class="UpdateWindow">
+				<div class="UpdateWindow_Title_Container">
+					<h1 class="UpdateWindow_Title">
+						Public Preview 4 Update
+					</h1>
+				</div>
+				<div class="UpdateWindow_Contents">
+					<h3 class="General_Title">
+						Thank you for updating.
+					</h3>
+					<h4 class="General_Paragraph" style="margin: 0;	padding: 0;">
+						Here's what changed:
+					</h4>
+					<p class="General_Paragraph">
+						Additions
+					</p>		
+					<ul class="General_Paragraph">
+						<li>
+							Added a way to re-order categories and shortcuts in Shortcut Editor. This is still experimental and may break unexpectedly. Please report any bug you may encounter.
+						</li>
+						<li>
+							Added the preset "Garden of Words" and "Underwater".
+						</li>
+						<li>
+							Added wallpaper previews and a better preset selector tab on Settings > Appearance.
+						</li>
+						<li>
+							Added a "Go to Bottom" button that appears when the "Back to Top" button is hovered.
+						</li>
+						<li>
+							Added an "Open Category Navigation" button that appears when the "Back to Top" button is hovered.
+						</li>
+						<li>
+							Added a behavior setting for Shortcut Editor that lets you choose how windows are closed and how input fields are cleared.
+						</li>
+					</ul>
+					<p class="General_Paragraph">
+						Changes
+					</p>		
+					<ul class="General_Paragraph">
+						<li>
+							Reworked the shortcut generation system and the home page should start a little bit faster now.
+						</li>
+						<li>
+							Shortcut Editor Add Item subwindow will automatically close after creating an item by default.
+						</li>
+						<li>
+							Shortcut Editor input fields will automatically clear content after creating an item by default.
+						</li>
+						<li>
+							The 6 checkboxes at the top of the Behavior tab in Settings > Behaviors had been moved to its own "Display" category.
+						</li>
+						<li>
+							Presets now includes the wallpaper.
+						</li>
+						<li>
+							Launcher will now check for internet connection every second instead of at every session.
+						</li>
+						<li>
+							Removed the version and copyright text from the Session Screen.
+						</li>
+						<li>
+							Removed the backdrop filter on the loading screen and will now display a solid color instead of a blurred background.
+						</li>
+						<li>
+							The Category Navigation Sidebar now has a close button.
+						</li>
+						<li>
+							Changed the Information tab icon in Settings > Information
+						</li>
+						<li>
+							Fixed toggleable elements not showing up on first click.
+						</li>
+						<li>
+							Fixed a bug where the opening animation doesn't play or bugs out.
+						</li>
+						<li>
+							Fixed a bug where more than one item is deleted at a time in some occasions on Shortcut Editor.
+						</li>
+						<li>
+							Fixed a bug where the default wallpaper doesn't show up when loading the default setting values.
+						</li>
+						<li>
+							Fixed a bug where default behaviors doesn't set properly when loading the launcher for the first time.
+						</li>
+					</ul>
+				</div>
+				<h1 class="Subwindow_Bottom_Button_Main UpdateWindow_Button" id="UpdateWindow" onclick="close_Subwindow(this.id)">
+					Proceed
+				</h1>
+			</div>
+		</div>
+		
+		<!-- In-Tab Browser -->
+		<!-- <div class="ITB_Container">
+			<div></div>
+			<div class="ITB_Header">
+				<h4 class="General_Title">
+					Test text
+				</h4>
+			</div>
+			<div class="ITB_MainContent">
+				<iframe src="https://cbelmerf.wixsite.com/content" class="ITB_MainContent_IFrame" style="width: 100%; height: 100%">
+				</iframe>
+			</div>
+		</div> -->
+		
+		<!-- Sidebar Calendar and Time -->
+		<!-- <div class="Sidebar_TimeDate_Container" id="pageElement_Sidebar_TimeDate"> -->
+		<!-- <div></div> -->
+		<!-- <div class="Sidebar_TimeDate"> -->
+			<!-- <div class="Sidebar_TimeDate_Time"> -->
+				<!-- <h1 class="Sidebar_TimeDate_Time_Text" id="Sidebar_Clock_Time"> -->
+					<!-- 11:01 PM -->
+				<!-- </h1> -->
+				<!-- <p class="Sidebar_TimeDate_Date_Text" id="Sidebar_Clock_Date"> -->
+					<!-- Sunday, 10/9/2022 -->
+				<!-- </p> -->
+			<!-- </div> -->
+			<!-- <div class="wrapper"> -->
+				<!-- <div class="container-calendar"> -->
+					<!-- <div class="container-calendar-controls"> -->
+						<!-- <button id="previous" onclick="previous()">&#8249;</button> -->
+						<!-- <h3 id="monthAndYear"></h3> -->
+						<!-- <div class="button-container-calendar"> -->
+							
+							
+						<!-- </div> -->
+						<!-- <button id="next" onclick="next()">&#8250;</button> -->
+					<!-- </div> -->
+					<!-- <table class="table-calendar" id="calendar" data-lang="en"> -->
+						<!-- <thead id="thead-month"></thead> -->
+						<!-- <tbody id="calendar-body"></tbody> -->
+					<!-- </table> -->
+					<!-- <div class="footer-container-calendar"> -->
+						<!-- <label for="month" class="footer-container-calendar-jumpto">Jump To: </label> -->
+						<!-- <select id="month" onchange="jump()"> -->
+							<!-- <option value=0>Jan</option> -->
+							<!-- <option value=1>Feb</option> -->
+							<!-- <option value=2>Mar</option> -->
+							<!-- <option value=3>Apr</option> -->
+							<!-- <option value=4>May</option> -->
+							<!-- <option value=5>Jun</option> -->
+							<!-- <option value=6>Jul</option> -->
+							<!-- <option value=7>Aug</option> -->
+							<!-- <option value=8>Sep</option> -->
+							<!-- <option value=9>Oct</option> -->
+							<!-- <option value=10>Nov</option> -->
+							<!-- <option value=11>Dec</option> -->
+						<!-- </select> -->
+						<!-- <select id="year" onchange="jump()"></select>        -->
+						<!-- </div> -->
+					<!-- </div> -->
+					<!-- <p class="General_Paragraph"> <a href="https://www.codehim.com/date-time/dynamic-calendar-in-javascript-with-example/"> Credits </a> </p> -->
+				<!-- </div> -->
+		<!-- </div> -->
+	<!-- </div> -->
+	
+		
+		
+		<div class="Header_Greeting">
+			<h1 class="Header_Greeting_Text">
+				Welcome back
+			</h1>
+		</div>
+		
+		<div class="Confirmation_Blur" id="subwindow_Confirmation_LaunchAllLinks">
+				<div class="Confirmation">
+					<h3 class="Confirmation_Title">
+						Are you sure?
+					</h3>
+					<div class="Confirmation_Content">
+						<p class="General_Paragraph" id="pageElement_Confirmation_DeleteItem">
+							You are about to launch all [] shortcuts of the category [].
+						</p>
+					</div>
+					<div class="Confirmation_Bottom">
+						<h4 class="Confirmation_Bottom_Button_SecondaryAction" id="Confirmation_LaunchAllLinks" onclick="close_Subwindow(this.id)">
+							Cancel
+						</h4>
+						<h4 class="Confirmation_Bottom_Button_PrimaryAction" onclick="trigger_launchAllTabs()">
+							Launch all
+						</h4>
+					</div>
+				</div>
+			</div>
+		
+		<!-- Blurs the background -->
+		<div class="General_BlurBG HomePageBlur" id="pageElement_WallpaperBlur">
+			a
+		</div>
+		
+		<!-- All content goes inside the PageGrid -->
+		<div class="PageGrid">
+			<div class="Header" id="pageElement_Header">
+				<!--<img class="Sidebar_CategoryNavigation_Toggle" id="toggle_Sidebar_CategoryNavigation" src="Assets/Icons/icon_hamburgermenu.png" onclick="toggle_Sidebar_CategoryNavigation()"></img>
+				<!-- For loading purposes only -->
+				<img class="Sidebar_CategoryNavigation_Toggle" id="toggle_Sidebar" src="Assets/Icons/icon_hamburgermenu.png" onclick="toggle_Sidebar_CategoryNavigation()"></img>
+				<!-- -->
+				<div class="Header_PageNavi" id="button_PageNavi" onclick="toggle_Navigator(this.id)">
+					<h2 class="Header_PageNavi_Title" id="Header_PageNavi_Title">
+						Home
+					</h2>
+				</div>
+				<div class="Header_Buttons" id="pageElement_Header_Buttons">
+					
+					<div class="Header_QuickSearchBar" id="pageElement_QuickSearchBar">
+						<input class="Header_QuickSearchBar_Input" placeholder="Internet search" id="pageElement_SearchQuery"></input>
+						<img src="Assets/Icons/icon_search.png" class="Header_QuickSearchBar_Search" id="headerMain" onclick="search_Query(this.id)" onsubmit="search_Query(this.id)"></img>
+					</div>
+					<!--<a href="DL_ShortcutEditor.html">
+						<h3 class="Header_Buttons_Item">
+						Shortcut editor
+						</h3>
+						</a>
+						<h3 class="Header_Buttons_Item">
+						Settings
+						</h3>
+						<h3 class="Header_Buttons_Item">
+						Public Beta Information
+						</h3>
+						<a href="../Elmer's School Launcher/Main.html">
+						<h3 class="Header_Buttons_Item">
+						Old UI
+						</h3>
+					</a>-->
+				</div>
+				<div class="Header_Clock" id="pageElement_Header_Clock" onclick="toggle_Sidebar_TimeDate()">
+					<h1 class="Header_Clock_Time" id="Clock_Time">
+						id="Clock_Time"
+					</h1>
+					<h1 class="Header_Clock_Date" id="Clock_Date">
+						id="Clock_Date"
+					</h1>
+				</div>
+				<div class="Header_Battery" id="pageElement_Header_Battery">
+					<h1 class="Header_Battery" id="Battery_Level">
+						%
+					</h1>
+				</div>
+				<div class="Header_RightMenu">
+					<img class="Header_RightMenu_Icon" src="Assets/Icons/icon_softwareUpdate.png"  id="button_Update" onclick="toggle_Textbox(this.id)"></img>
+					<img class="Header_RightMenu_Icon" src="Assets/Icons/icon_wifi_online.png"  id="button_Wifi" onclick="toggle_Textbox(this.id)"></img>
+				</div>
+			</div>
+			<div class="Header_Menu" id="pageElement_Header_Menu">
+				<div class="Header_Menu_Top">
+					<div class="Header_Menu_Top_Clock">
+						<h1 class="Header_Menu_Top_Clock_Time" id="Clock_Time_2">
+							id="Clock_Time"
+						</h1>
+						<h1 class="Header_Menu_Top_Clock_Date" id="Clock_Date_2">
+							id="Clock_Date"
+						</h1>
+					</div>
+					<h1 class="Header_Menu_Top_Battery" id="Battery_Level_2">
+						%
+					</h1>
+				</div>
+				<div class="Header_QuickSearchBar">
+					<input class="Header_QuickSearchBar_Input2" placeholder="Internet search" id="pageElement_SearchQuery2"></input>
+					<img src="Assets/Icons/icon_search.png" class="Header_QuickSearchBar_Search" id="headerMenu" onclick="search_Query(this.id)"></img>
+				</div>
+				<div class="Header_PageNavi_Textbox_Title">
+					Launcher Navigation
+				</div>
+				<div class="Header_PageNavi_Textbox_List" id="pageElement_Header_Menu_PageNaviList">
+					
+				</div>
+				<!--<div class="Header_PageNavi_Textbox_Title">
+					Page Actions
+					</div>
+					<div class="Header_PageNavi_Textbox_List" id="pageElement_Header_Menu_PageActions">
+					<a href="DL_ShortcutEditor.html">
+					<p class="Header_PageNavi_Textbox_List_Item">
+					Shortcut editor
+					</p>
+					</a>
+					<p class="Header_PageNavi_Textbox_List_Item">
+					Settings
+					</p>
+				</div>-->
+			</div>
+			<div class="Header_PageNavi_Textbox" id="button_PageNavi_textbox">
+				<div class="Header_PageNavi_Textbox_Title">
+					Launcher Navigation
+				</div>
+				<div class="Header_PageNavi_Textbox_List" id="pageElement_PageNaviList">
+					
+				</div>
+			</div>
+			<div class="Header_Right_Textbox"  id="button_Wifi_textbox">
+				<div class="Header_Right_Textbox_Title" id="textboxElement_Wifi">
+					No Connection
+				</div>				
+				<p class="Header_Right_Textbox_Text" id="pageElement_Connection">
+					Since you're not connected to the internet, links will not open properly. Connect to a Wi-Fi network and refresh the page.
+				</p>
+				<a href="https://fast.com/" target="_blank" id="pageElement_Connection_Speedtest">
+					<p class="Header_Right_Textbox_Text">
+						<u>Speedtest</u>
+					</p>
+				</a>
+			</div>
+			<div class="Header_Right_Textbox" id="button_Update_textbox">
+				<div class="Header_Right_Textbox_Title">
+					Update is available
+				</div>				
+				<p class="Header_Right_Textbox_Text">
+					A launcher update is available for you to download.
+				</p>
+				<a href="DL_Settings.html#LauncherUpdate">
+					<p class="Header_Right_Textbox_Text">
+						<u>Check for updates</u>
+					</p>
+				</a>
+			</div>
+			<div class="Sidebar_CategoryNavigation" id="pageElement_Sidebar_CategoryNavigation" style="width: 0px">
+				<p class="Sidebar_CategoryNavigation_Title">
+					Category Navigation
+					<img src="Assets/Icons/icon_close.png" class="Sidebar_CategoryNavigation_Title_Close" onclick="toggle_Sidebar_CategoryNavigation()"></img>
+				</p>
+			</div>
+			
+			<!--<div class="Subwindow_Blur" id="subwindow_PRIVATE_Elmer_Transfer">
+				<div class="Subwindow">
+				<div class="Subwindow_TitleBar">
+				<h1 class="Subwindow_TitleBar_Title" id="EditItem_SubwindowTitle">
+				Welcome to the new Doodle Launcher
+				</h1>
+				<img src="Assets/Icons/icon_close.png" class="Subwindow_TitleBar_Close" id="PRIVATE_Elmer_Transfer" onclick="close_Subwindow(this.id)">
+				</img>
+				</div>
+				<div class="Subwindow_Content">
+				<p class="Subwindow_Content_Text">
+				This update overhauls the shortcut storage system.<br>
+				The new system allows you to create shortcuts and categories without the developer's help. Since your previous links were baked into the app itself, we need to transfer these links into the new system. <br>
+				<br>
+				Click "Transfer my links" to start the transferring process. This is automatic and will not take too long.<br>
+				Click "Proceed normally" to proceed without transferring your previous links.<br>
+				<br>
+				You can do this again on Settings > Launcher Update > Transfer links.
+				</p>
+				
+				
+				</div>
+				<div class="Subwindow_Bottom Grid_2">
+				<h1 class="Subwindow_Bottom_Button" onclick="Settings_DetectImageFile()">
+				Proceed normally
+				</h1>
+				<h1 class="Subwindow_Bottom_Button_Main" onclick="Settings_ApplyChanges()">
+				Transfer my links
+				</h1>
+				</div>
+				</div>
+			</div>-->
+			
+			
+			
+			<div class="MainContent" id="pageElement_MainContent">
+				<div class="CornerButtons" id="pageElement_CornerButtons">
+					<img src="Assets/Icons/icon_hamburgermenu.png" class="CornerButtons_Button CategoryNavigation" onclick="toggle_Sidebar_CategoryNavigation()"></img>
+					<a href="#pageElement_Bottom" id="pageElement_GoToBottom"> <img src="Assets/Icons/icon_downArrow.png" class="CornerButtons_Button GoToBottom"></img> </a>
+					<a href="#pageElement_Top" id="pageElement_BackToTop"> <img src="Assets/Icons/icon_upArrow.png" class="CornerButtons_Button GoToTop"></img> </a>
+				</div>
+				<span class="anchor" id="pageElement_Top"></span>
+				<h1 class="Greeting_Text" id="pageElement_Greeting">
+					Good Evening
+				</h1>
+				<div id="pageElement_ContentContainer">
+					<!--<div class="Category">
+						<span class="anchor" id="anchor_category_test1"></span>
+						<div class="Category_Label" id="category_test1" onclick="toggle_Category(this.id)">
+						<img class="Category_Label_Icon" src="Assets/Icons/favicon_old.png"></img>
+						<h1 class="Category_Label_Text">
+						Category
+						</h1>
+						<img class="Category_Label_Toggle" src="Assets/Icons/icon_downArrow.png" id="arrow_category_test1"></img>
+						</div>
+						<div id="content_category_test1" class="Category_Content_Container">
+						<div class="Category_Shortcuts">
+						<div class="Shortcut_Item">
+						Item 1
+						</div>
+						<div class="Shortcut_Item">
+						Item 2
+						</div>
+						<div class="Shortcut_Item">
+						Item 3
+						</div>
+						<div class="Shortcut_Item">
+						Item 4
+						</div>
+						<div class="Shortcut_Item">
+						Item 5
+						</div>
+						<div class="Shortcut_Item">
+						Item 6
+						</div>
+						<div class="Shortcut_Item">
+						Item 7
+						</div>
+						<div class="Shortcut_Item">
+						Item 8
+						</div>
+						</div>
+						<div class="Category_Folder">
+						<div class="Category_Folder_Item">
+						<div class="Category_Folder_Item_Title">
+						Folder 1
+						</div>
+						<div class="Category_Folder_Item_List">
+						<p class="Category_Folder_Item_List_Item">
+						Item 1
+						</p>
+						<p class="Category_Folder_Item_List_Item">
+						Item 2
+						</p>
+						<p class="Category_Folder_Item_List_Item">
+						Item 3
+						</p>
+						</div>
+						</div>
+						<div class="Category_Folder_Item">
+						<div class="Category_Folder_Item_Title">
+						Folder 2
+						</div>
+						<div class="Category_Folder_Item_List">
+						<p class="Category_Folder_Item_List_Item">
+						Item 1
+						</p>
+						<p class="Category_Folder_Item_List_Item">
+						Item 2
+						</p>
+						<p class="Category_Folder_Item_List_Item">
+						Item 3
+						</p>
+						</div>
+						</div>
+						<div class="Category_Folder_Item">
+						<div class="Category_Folder_Item_Title">
+						Folder 3
+						</div>
+						<div class="Category_Folder_Item_List">
+						<p class="Category_Folder_Item_List_Item">
+						Item 1
+						</p>
+						<p class="Category_Folder_Item_List_Item">
+						Item 2
+						</p>
+						<p class="Category_Folder_Item_List_Item">
+						Item 3
+						</p>
+						</div>
+						</div>
+						</div>
+						</div>
+						</div>
+					-->
+					<img src="Assets/Images/ShortcutLibraryEmpty_HomePage.png" class="pageElement_LibraryEmptyNotif" id="pageElement_LibraryEmptyNotif"></img>
+				</div>
+				
+				<footer class="Footer" id="pageElement_Bottom">
+					<h1 class="Footer_Text" id="pageElement_Footer_VersionTitle">
+						Doodle Launcher Public Beta
+					</h1>
+					<h1 class="Footer_Text" id="pageElement_Footer_Copyright">
+						Content By ElmerF 2022
+					</h1>
+				</footer>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
